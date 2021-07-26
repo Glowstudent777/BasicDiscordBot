@@ -1,4 +1,4 @@
-# Basic Discord Bot
+# Setup
 
 Download and extract the files
 
