@@ -23,5 +23,6 @@ Copy the users discord id and paste it in the whitelisted section
 Run the command below to start the bot
 // More command stuff
 
-# Something didn't work
-Join the discord to get support: https://discord.gg/4wM63P7ZUd
+# Support
+Questions or errors?
+Join the Discord: https://discord.gg/4wM63P7ZUd
