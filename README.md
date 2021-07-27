@@ -4,9 +4,9 @@ Download and extract the files
 
 Open command prompt and cd to the location of the bot files
 
-Use the command below to install the requirements for the bot
+Install Discord.js using the command below
 ```
-npm install
+npm install discord.js
 ```
 
 # Adding the token
