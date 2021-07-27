@@ -25,6 +25,20 @@ To change the prefix replace '!' with whatever prefix you want
 To allow someone to use whitelisted commands
 Copy the users discord id and paste it in the whitelisted section
 
+# Changing the status
+Open config.json
+To change PLAYING, COMPETING, WATCHING, LISTENING, STREAMING
+```
+	"ActivityType": "WATCHING",
+```
+Change WATCHING to one of the above options
+
+To change what the bot is PLAYING, COMPETING, WATCHING, LISTENING, STREAMING
+```
+	"Activity": "Glowstudent",
+```
+Change 'Glowstudent' to what you want your bot to be doing
+
 # Running the bot
 Run the command below to start the bot
 ```
