@@ -19,12 +19,19 @@ module.exports = {
                                 setTimeout(function () {
                                     client.destroy();
                                     client.login(process.env.CLIENT_TOKEN)
-                                    client.user.setActivity(`${Activity}`, { type: `${ActivityType}` })
                                     console.log('Restarted ----------------------->')
                                     console.log('Current Server Number: ' + client.guilds.cache.size)
                                     msg.channel.send('Restart Complete')
+                                        .then(client => {
+                                            client.user.setActivity(`${Activity}`, { type: `${ActivityType}` })
+                                                .catch(console.error);
+                                        })
                                 }, 2000);
-                            })
+                            }).then(msg => {
+                            client.user.setActivity(`${Activity}`, { type: `${ActivityType}` })
+                                .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
+                                .catch(console.error);
+                        })
                     } else
                         msg.reply('Operation canceled.');
                     msg.reactions.removeAll();
