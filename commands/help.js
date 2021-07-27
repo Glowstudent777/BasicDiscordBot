@@ -43,6 +43,11 @@ module.exports = {
                             inline: true
                         },
                         {
+                          name: 'Fix',
+                          value: "Fixes the bots status - Whitelist Only",
+                          inline: true
+                        },
+                        {
                             name: 'Ping',
                             value: "Displays Latency",
                             inline: true
@@ -50,6 +55,16 @@ module.exports = {
                         {
                             name: 'Check',
                             value: "Checks if user has their ID on the whitelist that allows the use of whitelisted commands\n ✅ - On the whitelist\n ❌- Not on the whitelist",
+                            inline: true
+                        },
+                        {
+                            name: 'Kick',
+                            value: "Kicks Mentioned User - Requires KICK_MEMBERS Permission",
+                            inline: true
+                        },
+                        {
+                            name: 'Ban',
+                            value: "Bans Mentioned User - Requires BAN_MEMBERS Permission",
                             inline: true
                         }],
                     color: '#50C878'

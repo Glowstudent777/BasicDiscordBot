@@ -83,6 +83,12 @@ client.on('message', msg => {
     else if (command === 'fix'){
         client.commands.get('fix').execute(msg, args);
     }
+    else if (command === 'kick'){
+        client.commands.get('kick').execute(msg, args);
+    }
+    else if (command === 'ban'){
+        client.commands.get('ban').execute(msg, args);
+    }
 });
 
 client.on('shardError', error => {

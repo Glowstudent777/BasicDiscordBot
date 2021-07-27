@@ -22,10 +22,6 @@ module.exports = {
                                     console.log('Restarted ----------------------->')
                                     console.log('Current Server Number: ' + client.guilds.cache.size)
                                     msg.channel.send('Restart Complete')
-                                        .then(client => {
-                                            client.user.setActivity(`${Activity}`, { type: `${ActivityType}` })
-                                                .catch(console.error);
-                                        })
                                 }, 2000);
                             }).then(msg => {
                             client.user.setActivity(`${Activity}`, { type: `${ActivityType}` })
@@ -41,5 +37,6 @@ module.exports = {
                 });
             }
         }
+        client.user.setActivity(`${Activity}`, { type: `${ActivityType}` });
     }
 }
