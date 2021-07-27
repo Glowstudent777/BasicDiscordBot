@@ -80,6 +80,9 @@ client.on('message', msg => {
     else if (command === 'log'){
         client.commands.get('log').execute(msg, args);
     }
+    else if (command === 'fix'){
+        client.commands.get('fix').execute(msg, args);
+    }
 });
 
 client.on('shardError', error => {
