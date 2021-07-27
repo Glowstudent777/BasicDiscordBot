@@ -9,14 +9,14 @@ Install the required dependencies by running the command below in the folder wit
 npm i
 ```
 
-# Adding the token
+# Adding the Token
 Create a file called ".env" and type
 ```
 CLIENT_TOKEN=bottoken
 ```
 Replace "bottoken" with your bot's token
 
-# Configuring the bot
+# Configuring the Bot
 Open config.json in a text editor
 
 The default prefix is '!'
@@ -25,7 +25,7 @@ To change the prefix replace '!' with whatever prefix you want
 To allow someone to use whitelisted commands
 Copy the users discord id and paste it in the whitelisted section
 
-# Changing the status
+# Changing the Activity Type
 Open config.json
 To change PLAYING, COMPETING, WATCHING, LISTENING, STREAMING
 ```
@@ -33,9 +33,8 @@ To change PLAYING, COMPETING, WATCHING, LISTENING, STREAMING
 ```
 Change WATCHING to one of the above options
 
+# Changing the Activity
 To change what the bot is PLAYING, COMPETING, WATCHING, LISTENING, STREAMING
-
-
 ```
 "Activity": "Glowstudent",
 ```
