@@ -34,6 +34,8 @@ To change PLAYING, COMPETING, WATCHING, LISTENING, STREAMING
 Change WATCHING to one of the above options
 
 To change what the bot is PLAYING, COMPETING, WATCHING, LISTENING, STREAMING
+
+
 ```
 "Activity": "Glowstudent",
 ```
