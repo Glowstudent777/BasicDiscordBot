@@ -19,7 +19,7 @@ module.exports = {
                                 setTimeout(function () {
                                     client.destroy();
                                     client.login(process.env.CLIENT_TOKEN)
-                                    client.user.setActivity('The Divine Empire', { type: 'WATCHING' })
+                                    client.user.setActivity(`${Activity}`, { type: `${ActivityType}` })
                                     console.log('Restarted ----------------------->')
                                     console.log('Current Server Number: ' + client.guilds.cache.size)
                                     msg.channel.send('Restart Complete')

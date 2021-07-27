@@ -21,6 +21,9 @@ global.whitelist = whitelist;
 global.client = client;
 global.prefix = prefix;
 
+global.Activity = Activity;
+global.ActivityType = ActivityType;
+
 
 client.commands = new Discord.Collection();
 
@@ -73,6 +76,9 @@ client.on('message', msg => {
     }
     else if (command === 'check'){
         client.commands.get('check').execute(msg, args);
+    }
+    else if (command === 'log'){
+        client.commands.get('log').execute(msg, args);
     }
 });
 
