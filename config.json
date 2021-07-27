@@ -6,5 +6,5 @@
 	"ActivityType": "WATCHING",
 
 	"_Whitelist Comment": "Whitelist is for user ids that can shutdown and restart the bot",
-	"whitelist": ["your id", "another id"]
+	"whitelist": ["id1", "id2"]
 }
