@@ -6,7 +6,7 @@ Open command prompt and cd to the location of the bot files
 
 Use the command below to install the requirements for the bot
 ```
-// Command stuff
+npm install
 ```
 
 # Adding the token
