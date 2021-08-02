@@ -9,6 +9,13 @@ Install the required dependencies by running the command below in the folder wit
 npm i
 ```
 
+# Creating the Bot
+Go to https://discord.com/developers/applications
+
+Create a new application and go to the Bot tab
+
+Select Add Bot and copy the token
+
 # Adding the Token
 Create a file called ".env" and type
 ```
