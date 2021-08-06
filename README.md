@@ -32,6 +32,9 @@ To change the prefix replace '!' with whatever prefix you want
 To allow someone to use whitelisted commands
 Copy the users discord id and paste it in the whitelisted section
 
+To add multiple whitelisted IDs separate them with commas
+
+
 # Changing the Activity Type
 Open config.json
 To change PLAYING, COMPETING, WATCHING, LISTENING, STREAMING
