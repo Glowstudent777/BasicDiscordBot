@@ -34,6 +34,17 @@ Copy the users discord id and paste it in the whitelisted section
 
 To add multiple whitelisted IDs separate them with commas
 
+One User ID
+```
+"whitelist": ["OneID"]
+```
+
+Two User IDs
+```
+"whitelist": ["OneID", "AnotherID"]
+```
+And so on for as many users as you need to have bot owner control over the bot
+
 
 # Changing the Activity Type
 Open config.json
