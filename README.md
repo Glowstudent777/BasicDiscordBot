@@ -43,7 +43,7 @@ Two User IDs
 ```
 "whitelist": ["OneID", "AnotherID"]
 ```
-And so on for as many users as you need to have bot owner control over the bot
+And so on for as many users as you need
 
 
 # Changing the Activity Type
