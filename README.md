@@ -21,9 +21,9 @@ Select Add Bot and copy the token
 ## If you do not have the .env file
 Create a file called ".env" and type
 ```
-CLIENT_TOKEN=bottoken
+CLIENT_TOKEN=
 ```
-Replace "bottoken" with your bot's token
+Paste your bot token after `CLIENT_TOKEN=`
 
 ## If you do have the .env file
 Open the .env file and paste your bot token after
