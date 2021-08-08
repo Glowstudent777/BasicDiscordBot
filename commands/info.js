@@ -20,6 +20,14 @@ module.exports = {
                     {
                         name: 'Invite',
                         value: `[Invite Link](${link})`
+                    },
+                    {
+                        name: 'Servers',
+                        value: `${client.guilds.cache.size}`
+                    },
+                    {
+                        name: 'Github',
+                        value: `[GitHub Repository](https://github.com/Glowstudent777/BasicDiscordBot)`
                     }],
                 color: '#50C878'
             }});

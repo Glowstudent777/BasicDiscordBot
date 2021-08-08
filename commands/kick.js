@@ -2,6 +2,7 @@ module.exports = {
     name: 'kick',
     description: "Kicks the mentioned user",
     execute(msg, args){
+
         if (!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send("Invalid Permissions").then(msg.react('❌'))
 
 
