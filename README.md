@@ -25,7 +25,7 @@ CLIENT_TOKEN=bottoken
 ```
 Replace "bottoken" with your bot's token
 
-##If you do have the .env file
+## If you do have the .env file
 Open the .env file and paste your bot token after
 ```
 CLIENT_TOKEN=
