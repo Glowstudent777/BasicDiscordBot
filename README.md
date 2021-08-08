@@ -17,11 +17,19 @@ Create a new application and go to the Bot tab
 Select Add Bot and copy the token
 
 # Adding the Token
+
+## If you do not have the .env file
 Create a file called ".env" and type
 ```
 CLIENT_TOKEN=bottoken
 ```
 Replace "bottoken" with your bot's token
+
+##If you do have the .env file
+Open the .env file and paste your bot token after
+```
+CLIENT_TOKEN=
+```
 
 # Configuring the Bot
 Open config.json in a text editor
