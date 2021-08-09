@@ -75,6 +75,9 @@ Run the command below to start the bot
 node main.js
 ```
 
+# Wiki
+Check the wiki for a better tutorial on hosting
+
 # Support
 Questions or errors?
 Join the Discord: https://discord.gg/4wM63P7ZUd
