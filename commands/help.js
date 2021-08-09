@@ -66,11 +66,6 @@ module.exports = {
                             name: 'Ban',
                             value: "Bans Mentioned User - Requires BAN_MEMBERS Permission",
                             inline: true
-                        },
-                        {
-                            name: 'Unban',
-                            value: "Unbans User - Requires BAN_MEMBERS Permission - Currently Not Available",
-                            inline: true
                         }],
                     color: '#50C878'
                 }});
