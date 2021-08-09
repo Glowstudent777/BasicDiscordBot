@@ -46,6 +46,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     if(!msg.content.startsWith(prefix) || msg.author.bot) return;
+    if(msg.channel.type === 'dm') return msg.reply("This command must be used in a guild");
 
     const args = msg.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
