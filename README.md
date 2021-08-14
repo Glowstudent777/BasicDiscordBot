@@ -1,3 +1,9 @@
+<h1>Basic Discord Bot</h1>
+<div align="center">
+<img alt="GitHub Downloads" src="https://img.shields.io/github/downloads/Glowstudent777/BasicDiscordBot/total">
+</div>
+
+
 # Setup
 
 Download and extract the files
