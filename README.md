@@ -1,6 +1,7 @@
 <h1>Basic Discord Bot</h1>
 <div align="center">
 <img alt="GitHub Downloads" src="https://img.shields.io/github/downloads/Glowstudent777/BasicDiscordBot/total">
+<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Glowstudent777/BasicDiscordBot">
 </div>
 
 
