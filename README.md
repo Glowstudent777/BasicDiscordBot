@@ -98,7 +98,7 @@ node main.js
 ```
 
 # Wiki
-Check the <a href="https://github.com/Glowstudent777/BasicDiscordBot/wiki">wiki</a> for a better tutorial on hosting
+Check the <a href="https://github.com/Glowstudent777/BasicDiscordBot/wiki">wiki</a> for more information about hosting and configuration
 
 # Support
 Questions or errors?
