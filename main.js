@@ -10,6 +10,10 @@ const {whitelist} = require('./config.json');
 const {Activity} = require('./config.json');
 const {ActivityType} = require('./config.json');
 
+const {blacklist} = require('./config.json');
+
+
+
 client.generateInvite(['ADMINISTRATOR'])
     .then(link => {
         console.log(`Generated bot invite link: ${link}`);
@@ -25,14 +29,37 @@ global.Activity = Activity;
 global.ActivityType = ActivityType;
 
 
+client.aliases = new Discord.Collection();
 client.commands = new Discord.Collection();
 
-const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
-for (const file of commandFiles){
-    const command = require(`./commands/${file}`);
 
-    client.commands.set(command.name, command);
+const commandFolders = fs.readdirSync('./commands');
+for (const folder of commandFolders) {
+    const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
+    for (const file of commandFiles) {
+        const command = require(`./commands/${folder}/${file}`);
+        client.commands.set(command.name, command);
+    }
 }
+
+fs.readdir('./events/', (err, files) => { // We use the method readdir to read what is in the events folder
+    if (err) return console.error(err); // If there is an error during the process to read all contents of the ./events folder, throw an error in the console
+    files.forEach(file => {
+        const eventFunction = require(`./events/${file}`); // Here we require the event file of the events folder
+        if (eventFunction.disabled) return; // Check if the eventFunction is disabled. If yes return without any error
+
+        const event = eventFunction.event || file.split('.')[0]; // Get the exact name of the event from the eventFunction variable. If it's not given, the code just uses the name of the file as name of the event
+        const emitter = (typeof eventFunction.emitter === 'string' ? client[eventFunction.emitter] : eventFunction.emitter) || client; // Here we define our emitter. This is in our case the client (the bot)
+        const once = eventFunction.once; // A simple variable which returns if the event should run once
+
+        // Try catch block to throw an error if the code in try{} doesn't work
+        try {
+            emitter[once ? 'once' : 'on'](event, (...args) => eventFunction.run(...args)); // Run the event using the above defined emitter (client)
+        } catch (error) {
+            console.error(error.stack); // If there is an error, console log the error stack message
+        }
+    });
+});
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);

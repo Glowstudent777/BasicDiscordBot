@@ -1,10 +1,13 @@
 {
-	"prefix": "!",
+	"prefix": "1",
 
 	"Activity": "Glowstudent",
 	"_ActivityType_Options": "PLAYING, COMPETING, WATCHING, LISTENING, STREAMING",
 	"ActivityType": "WATCHING",
 
 	"_Whitelist Comment": "Whitelist is for user ids that can shutdown and restart the bot",
-	"whitelist": ["id1", "id2"]
+	"whitelist": ["id1", "id2"],
+
+	"_blacklist": "To disable leave blank: []",
+	"blacklist": []
 }
