@@ -7,6 +7,18 @@
 <a href="https://discord.gg/4wM63P7ZUd"><img alt="Discord" src="https://img.shields.io/discord/774005477617041440?label=Discord&logo=discord"></a>
 </div>
 
+# Features
+- Easy Setup
+- Easy Configuration
+
+Commands:
+- Avatar
+- Ping
+- Profile
+- Server Info
+- Ban
+- Kick
+- Bot Controls ( Shutdown / Restart )
 
 # Setup
 
