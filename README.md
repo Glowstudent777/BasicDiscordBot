@@ -1,6 +1,6 @@
 <h1>Basic Discord Bot</h1>
 <div align="center">
-<img alt="GitHub Downloads" src="https://img.shields.io/github/downloads/Glowstudent777/BasicDiscordBot/total">
+<img alt="GitHub all releases" src="https://img.shields.io/github/downloads/Glowstudent777/BasicDiscordBot/total">
 <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Glowstudent777/BasicDiscordBot">
 <a href="https://github.com/Glowstudent777/BasicDiscordBot/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/Glowstudent777/BasicDiscordBot"></a>
 <a href="https://github.com/Glowstudent777/BasicDiscordBot"><img alt="GitHub license" src="https://img.shields.io/github/license/Glowstudent777/BasicDiscordBot"></a>
