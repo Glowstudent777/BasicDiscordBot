@@ -2,72 +2,134 @@ module.exports = {
     name: 'help',
     description: "List of commands",
     execute(msg, args){
-            msg.channel.send({embed: {
+
+
+        if(!args[0]) {
+            msg.channel.send({
+                embed: {
                     footer: {
                         icon_url: msg.author.avatarURL(),
                         text: msg.author.tag
                     },
                     fields: [
                         {
-                            name: 'Prefix',
-                            value: "The prefix for the bot is " + `${prefix}`
-                        },
-                        {
-                            name: 'Server',
-                            value: "Displays information about the server",
-                            inline: true
-                        },
-                        {
-                            name: 'Info',
-                            value: "Displays information about the bot",
-                            inline: true
-                        },
-                        {
-                            name: 'Profile',
-                            value: "Displays the users profile",
-                            inline: true
-                        },
-                        {
-                            name: 'Avatar',
-                            value: "Displays the mentioned users avatar",
-                            inline: true
-                        },
-                        {
-                            name: 'Shutdown',
-                            value: "Shuts down the bot - Whitelist Only",
-                            inline: true
-                        },
-                        {
-                            name: 'Restart',
-                            value: "Restarts the bot - Whitelist Only",
-                            inline: true
-                        },
-                        {
-                          name: 'Fix',
-                          value: "Fixes the bots status - Whitelist Only",
-                          inline: true
-                        },
-                        {
-                            name: 'Ping',
-                            value: "Displays Latency",
-                            inline: true
-                        },
-                        {
-                            name: 'Check',
-                            value: "Checks if user has their ID on the whitelist that allows the use of whitelisted commands\n ✅ - On the whitelist\n ❌- Not on the whitelist",
-                            inline: true
-                        },
-                        {
-                            name: 'Kick',
-                            value: "Kicks Mentioned User - Requires KICK_MEMBERS Permission",
-                            inline: true
-                        },
-                        {
-                            name: 'Ban',
-                            value: "Bans Mentioned User - Requires BAN_MEMBERS Permission",
-                            inline: true
+                            name: 'Modules',
+                            value: "fun\ninfo\nmod\nwhitelist"
                         }],
                     color: '#50C878'
-                }});
+                }
+            });
+        }
+
+        if(!args[0]) return;
+
+            if (args[0].toLowerCase() === 'fun') {
+                msg.channel.send({
+                    embed: {
+                        footer: {
+                            icon_url: msg.author.avatarURL(),
+                            text: msg.author.tag
+                        },
+                        fields: [
+                            {
+                                name: 'Avatar',
+                                value: "Displays users avatar"
+                            },
+                            {
+                                name: 'Profile',
+                                value: "Displays users profile"
+                            }],
+                        color: '#50C878',
+                        title: 'Fun'
+                    }
+                });
+            }
+
+            if (args[0].toLowerCase() === 'info') {
+                msg.channel.send({
+                    embed: {
+                        footer: {
+                            icon_url: msg.author.avatarURL(),
+                            text: msg.author.tag
+                        },
+                        fields: [
+                            {
+                                name: 'Help',
+                                value: "Displays help modules"
+                            },
+                            {
+                                name: 'Info',
+                                value: "Sends info about the bot"
+                            },
+                            {
+                                name: 'Ping',
+                                value: 'Displays latency'
+                            },
+                            {
+                                name: 'Server',
+                                value: 'Displays info about the server'
+                            }],
+                        color: '#50C878',
+                        title: 'Info'
+                    }
+                });
+            }
+
+            if (args[0].toLowerCase() === 'mod') {
+                msg.channel.send({
+                    embed: {
+                        footer: {
+                            icon_url: msg.author.avatarURL(),
+                            text: msg.author.tag
+                        },
+                        fields: [
+                            {
+                                name: 'Ban',
+                                value: "Bans mentioned user"
+                            },
+                            {
+                                name: 'Kick',
+                                value: "Kicks mentioned user"
+                            }],
+                        color: '#50C878',
+                        title: 'Mod'
+                    }
+                });
+            }
+
+            if (args[0].toLowerCase() === 'whitelist') {
+                msg.channel.send({
+                    embed: {
+                        footer: {
+                            icon_url: msg.author.avatarURL(),
+                            text: msg.author.tag
+                        },
+                        fields: [
+                            {
+                                name: 'Check',
+                                value: "Check if user is on whitelist"
+                            },
+                            {
+                                name: 'Restart',
+                                value: "Restarts the bot"
+                            },
+                            {
+                                name: 'Shutdown',
+                                value: "Turns off the bot"
+                            },
+                            {
+                                name: 'Fix',
+                                value: 'If bot status is not showing use this command to fix it'
+                            }],
+                        color: '#50C878',
+                        title: 'Whitelist'
+                    }
+                });
+            }
+
+
+
+
+
         }
 }

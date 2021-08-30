@@ -18,6 +18,10 @@ module.exports = {
                         value: 'Glowstudent#1229'
                     },
                     {
+                      name: 'Prefix',
+                      value: `${prefix}`
+                    },
+                    {
                         name: 'Invite',
                         value: `[Invite Link](${link})`
                     },

@@ -22,12 +22,9 @@ module.exports = {
                                     console.log('Restarted ----------------------->')
                                     console.log('Current Server Number: ' + client.guilds.cache.size)
                                     msg.channel.send('Restart Complete')
+                                    client.user.setActivity(`${Activity}`, { type: `${ActivityType}` });
                                 }, 2000);
-                            }).then(msg => {
-                            client.user.setActivity(`${Activity}`, { type: `${ActivityType}` })
-                                .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
-                                .catch(console.error);
-                        })
+                            })
                     } else
                         msg.reply('Operation canceled.');
                     msg.reactions.removeAll();
@@ -37,6 +34,5 @@ module.exports = {
                 });
             }
         }
-        client.user.setActivity(`${Activity}`, { type: `${ActivityType}` });
     }
 }

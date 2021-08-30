@@ -5,9 +5,12 @@
 	"_ActivityType_Options": "PLAYING, COMPETING, WATCHING, LISTENING, STREAMING",
 	"ActivityType": "WATCHING",
 
-	"_Whitelist Comment": "Whitelist is for user ids that can shutdown and restart the bot",
+	"_Whitelist Comment": "Whitelist is for user ids that can shutdown and restart the bot, bypasses blacklist",
 	"whitelist": ["id1", "id2"],
 
 	"_blacklist": "To disable leave blank: []",
-	"blacklist": []
+	"blacklist": [""],
+
+	"_blacklistMessage": "Message sent when a message with a blacklisted word is sent. To disable leave blank",
+	"blacklistMessage": "You cannot say that here!"
 }
