@@ -10,6 +10,7 @@
 # Features
 - Easy Setup
 - Easy Configuration
+- Blacklist Word Filter
 
 Commands:
 - Avatar
