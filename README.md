@@ -13,6 +13,7 @@
 - Blacklist Word Filter
 
 Commands:
+- Meme
 - Avatar
 - Ping
 - Profile
