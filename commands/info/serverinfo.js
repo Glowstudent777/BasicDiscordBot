@@ -1,34 +1,38 @@
 module.exports = {
     name: 'serverinfo',
+    aliases: ['si', 'server', 'guild', 'guildinfo'],
     description: "Information about the server",
-    execute(msg, args){
-        msg.channel.send({embed: {
-                footer: {
-                    icon_url: msg.author.avatarURL(),
-                    text: msg.author.tag
+    async execute(message, args) {
+
+
+        const owner = await message.guild.fetchOwner();
+        const members = await message.guild.members.fetch();
+
+        const Discord = require('discord.js');
+        const moment = require('moment');
+        const { MessageEmbed } = require('discord.js');
+
+            const siembed = new MessageEmbed()
+            .setTitle(`${message.guild.name} Information`)
+            .setColor("#50C878")
+            .setFields(
+                {
+                    name: "Server Owner",
+                    value: `${owner}`,
                 },
-                fields: [
-                    {
-                        name: 'Server Owner',
-                        value: msg.guild.owner
-                    },
-                    {
-                        name: 'Server Name',
-                        value: msg.guild.name
-                    },
-                    {
-                        name: 'Server Created',
-                        value: msg.guild.createdAt
-                    },
-                    {
-                        name: 'Member Count',
-                        value: msg.guild.members.cache.filter(member => !member.user.bot).size
-                    },
-                    {
-                        name: 'Bot Count',
-                        value: msg.guild.memberCount - msg.guild.members.cache.filter(member => !member.user.bot).size
-                    }],
-                color: "#50C878"
-            }});
+                {
+                    name: "Server ID",
+                    value: message.guild.id,
+                },
+                {
+                    name: "Server Creation Date",
+                    value: `${moment(message.guild.createdAt).format('MMMM Do YYYY, h:mm a')}`,
+                },
+                {
+                    name: "Server Member Count",
+                    value: message.guild.members.cache.filter(member => !member.user.bot).size + " Humans, " + message.guild.members.cache.filter(member => member.user.bot).size + " Bots",
+                })
+            .setFooter(message.author.tag, message.author.avatarURL())
+        message.channel.send({ embeds: [siembed] });
     }
 }

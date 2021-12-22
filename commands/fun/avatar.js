@@ -1,45 +1,19 @@
 module.exports = {
     name: 'avatar',
+    aliases: ['icon','pfp'],
     description: "avatar",
-    execute(msg, args) {
+    execute(message, args) {
 
-        const mentioned = msg.mentions.users.first();
+        const { MessageEmbed } = require('discord.js');
+        const member =  message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
+        if (!member) return message.channel.send('Mention a member to view their profile');
 
-        if (!msg.mentions.users.size) {
-            msg.channel.send({
-                embed: {
-                    footer: {
-                        icon_url: msg.author.avatarURL(),
-                        text: msg.author.tag
-                    },
-                    color: "#50C878",
-                    author: "Avatar",
-                    title: msg.author.username + "'s Avatar",
-                    image: {
-                        url: msg.author.displayAvatarURL(
-                            {format: 'png', size: 1024, dynamic: true}
-                        )
-                    }
-                }
-            });
-        }
-        if (msg.mentions.users.size) {
-            msg.channel.send({
-                embed: {
-                    footer: {
-                        icon_url: msg.author.avatarURL(),
-                        text: msg.author.tag
-                    },
-                    color: "#50C878",
-                    author: "Avatar",
-                    title: mentioned.username + "'s Avatar",
-                    image: {
-                        url: mentioned.displayAvatarURL(
-                            {format: 'png', size: 1024, dynamic: true}
-                        )
-                    }
-                }
-            });
-        }
+        let avatar = new MessageEmbed()
+            .setTitle(`${member.user.username}'s Avatar`)
+            .setColor("#50C878")
+            .setImage(member.user.avatarURL({format: "png", size: 1024, dynamic: true}))
+            .setURL(member.user.avatarURL({format: "png", size: 1024, dynamic: true}))
+            .setFooter(message.author.tag, message.author.avatarURL())
+        message.channel.send({ embeds: [avatar] });
     }
 }

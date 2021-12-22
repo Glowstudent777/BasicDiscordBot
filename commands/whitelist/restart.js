@@ -21,7 +21,9 @@ module.exports = {
                                     client.login(process.env.CLIENT_TOKEN)
                                     console.log('Restarted ----------------------->')
                                     console.log('Current Server Number: ' + client.guilds.cache.size)
-                                    msg.channel.send('Restart Complete')
+                                    msg.channel.send('Restart Complete').then(msg => {
+                                        msg.delete({timeout: 5000})
+                                    })
                                     client.user.setActivity(`${Activity}`, { type: `${ActivityType}` });
                                 }, 2000);
                             })
