@@ -10,17 +10,7 @@
 # Features
 - Easy Setup
 - Easy Configuration
-- Blacklist Word Filter
-
-Commands:
-- Meme
-- Avatar
-- Ping
-- Profile
-- Server Info
-- Ban
-- Kick
-- Bot Controls ( Shutdown / Restart )
+- Unverified Bot Blocker
 
 # Setup
 
