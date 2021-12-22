@@ -1,67 +1,94 @@
 const Discord = require('discord.js');
 const fetch = require("node-fetch");
-const url = 'https://www.reddit.com/r/meme/hot/.json?limit=100'
+const url = 'https://www.reddit.com/r/memes/hot/.json?limit=100'
 const https = require('https');
 const got = require("got");
-const {MessageEmbed} = require("discord.js");
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'meme',
-    description: "Sends a meme",
-    async execute(message, args, Discord) {
+    description: 'Sends a random meme from r/memes',
+    category: 'fun',
+    async execute(message, args, Discord){
 
-        // const embed = new Discord.MessageEmbed()
-        // got('https://www.reddit.com/r/memes/random/.json').then(response => {
-        //     let content = JSON.parse(response.body);
-        //     let permalink = content[0].data.children[0].data.permalink;
-        //     let memeUrl = `https://reddit.com${permalink}`;
-        //     let memeImage = content[0].data.children[0].data.url;
-        //     let memeTitle = content[0].data.children[0].data.title;
-        //     let memeUpvotes = content[0].data.children[0].data.ups;
-        //     let memeDownvotes = content[0].data.children[0].data.downs;
-        //     let memeNumComments = content[0].data.children[0].data.num_comments;
-        //     embed.setTitle(`${memeTitle}`)
-        //     embed.setURL(`${memeUrl}`)
-        //     embed.setImage(memeImage)
-        //     embed.setColor('RANDOM')
-        //     embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments}`)
-        //     message.channel.send(embed);
+        var url = `https://www.reddit.com/r/memes/hot/.json?limit=100`
+        https.get(url, (result) => {
+            var body = ''
+            var chunked = false
+            result.on('data', (chunk) => {
+                body += chunk
+                if (chunked == false){
+                    chunked = true
+                }
+            })
+            result.on('end', () => {
+                if (body.length > 1000){
+                    var response = JSON.parse(body)
+                    var postChildren = []
+                    if (message.channel.nsfw == false){
+                        var postsNumber = 0
+                        for (var number = 0; number < response.data.children.length; number++){
+                            postChildren.push(number)
+                        }
+                        for (var found = false; found == false; postsNumber ++){
+                            if (postChildren.length > 0){
+                                var index1 = Math.floor(Math.random() * (postChildren.length))
+                                var index2 = postChildren[index1]
+                                if (response.data.children[index2].data.over_18 == true){
+                                    postChildren.splice(index1, 1)
+                                } else {
+                                    var index = response.data.children[index2].data
+                                    var found = true
+                                }
+                            } else {
+                                var found = true
+                            }
+                        }
+                    } else {
+                        var index = response.data.children[Math.floor(Math.random() * (response.data.children.length-1)) + 1].data
+                    }
+                    if (postChildren.length > 0 || message.channel.nsfw){
+                        var title = index.title
+                        var upvotes = index.ups
+                        var link = 'https://reddit.com' + index.permalink
+                        var subRedditName = index.subreddit_name_prefixed
+                        if (index.post_hint !== 'image') {
+                            var text = index.selftext
+                            if (title.length > 256) {
+                                title = (title.substring(0, 253) + "...")
+                            }
+                            if (text.length > 2048) {
+                                text = (text.substring(0, 2045) + "...")
+                            }
 
-
-        got('https://www.reddit.com/r/memes/random/.json').then(response => {
-            let content = JSON.parse(response.body);
-            let permalink = content[0].data.children[0].data.permalink;
-            let memeUrl = `https://reddit.com${permalink}`;
-            let memeImage = content[0].data.children[0].data.url;
-            let memeTitle = content[0].data.children[0].data.title;
-            let memeUpvotes = content[0].data.children[0].data.ups;
-            let memeDownvotes = content[0].data.children[0].data.downs;
-            let memeNumComments = content[0].data.children[0].data.num_comments;
-
-
-            // message.channel.send({
-            //     embed: {
-            //         title: `${memeTitle}`,
-            //         footer: {
-            //             icon_url: message.author.avatarURL(),
-            //             text: `${memeUpvotes}` + " Upvotes"
-            //         },
-            //         url: `${memeUrl}`,
-            //         color: "#FFA500",
-            //         image: {
-            //             url: `${memeImage}`
-            //         }
-            //     }
-            // })
-
-                let embed = new MessageEmbed()
-                    .setTitle(`${memeTitle}`)
-                    .setColor("#50C878")
-                    .setImage(`${memeImage}`)
-                    .setImage(`${memeUrl}`)
-                    .setFooter(`${memeUpvotes}`, message.author.avatarURL())
-                message.channel.send({ embeds: [embed] });
-
-        })
-    }
-}
+                            let embed = new MessageEmbed()
+                                .setTitle(`${title}`)
+                                .setColor("#50C878")
+                                .setImage(image)
+                                .setFooter(`${upvotes} Upvotes`, message.author.avatarURL())
+                                .setURL(link)
+                            message.channel.send({ embeds: [embed] });
+                        }
+                        if (index.post_hint == 'image'){
+                            var image = index.preview.images[0].source.url.replace('&amp;', '&')
+                            if (title.length > 256) {
+                                title = (title.substring(0, 253) + "...")
+                            }
+                            let embed = new MessageEmbed()
+                                .setTitle(`${title}`)
+                                .setColor("#50C878")
+                                .setImage(image)
+                                .setFooter(`${upvotes} Upvotes`, message.author.avatarURL())
+                                .setURL(link)
+                            message.channel.send({ embeds: [embed] });
+                        }
+                    } else {
+                        message.channel.send('Could not find a meme that was not nsfw')
+                    }
+                } else {
+                    message.channel.send('Could not find subreddit!')
+                }
+            }).on('error', function (e) {
+                console.log('Got an error: ', e)
+            })
+        })},}
